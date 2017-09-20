@@ -13,7 +13,7 @@ import logging
 from deepwalk import graph
 from deepwalk import walks as serialized_walks
 from gensim.models import Word2Vec
-from skipgram import Skipgram
+from .skipgram import Skipgram
 
 from six import text_type as unicode
 from six import iteritems
@@ -94,7 +94,7 @@ def process(args):
                      size=args.representation_size,
                      window=args.window_size, min_count=0, workers=args.workers)
 
-  model.save_word2vec_format(args.output)
+  model.wv.save_word2vec_format(args.output)
 
 
 def main():
